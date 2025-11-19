@@ -561,7 +561,7 @@ export class BookHelper {
         params: reqParams,
       }
     )
-    
+
     if (ctx)
       void ctx.logger.info({
         message: `Requested ${1} books from Audible`,
@@ -579,7 +579,6 @@ export class BookHelper {
       )
 
       if (products.length <= 0 && shouldThrow) throw new NotFoundException()
-
 
       const books: Book[] = []
       const genres: Genre[] = []
@@ -644,7 +643,6 @@ export class BookHelper {
           // ensure values are always an array when converting to DTO
           authorMap.set(product.asin, Object.values(localAuthors))
         }
-
 
         // Series
         const localSeries: Record<string, any> = {}

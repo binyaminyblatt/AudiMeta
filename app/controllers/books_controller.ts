@@ -136,16 +136,13 @@ export default class BooksController {
 
     if (payload.asin) {
       asin = payload.asin
-    }else {
+    } else {
       return []
     }
 
-    const books = await new BookHelper().getBooksInSameSeriesFromAudible(
-      asin,
-      payload.region
-    )
-    
-    if (books===undefined ||books.length === 0) {
+    const books = await new BookHelper().getBooksInSameSeriesFromAudible(asin, payload.region)
+
+    if (books === undefined || books.length === 0) {
       throw new NotFoundException()
     }
     return BookDto.fromArray(books)
